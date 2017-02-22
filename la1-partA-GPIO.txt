@@ -1,0 +1,67 @@
+Lab 1 GPIO Testing
+HL
+
+In Part A of Lab 1, you will build embedded system for GPIO testing. The goal is 
+to understand how linux-arm-gcc cross compiler works, and how to write a simple 
+device driver program, and how to use menuconfig to build device driver module. 
+
+1. General Requirements 
+
+   (1) Use embedded server, e.g., either ARMSVR (ARM11 Platform) or JETSVR (GPU platform), 
+   read pdf schematic document of the server, say, ARMSVR (from Friendly ARM) or JETSVR
+   (from Nvidia), to locate the connector(s) which expose the CPU pin to the outside. 
+   Identify 2 GPIO (GPP) portpins from a chosen connector, and allocate one for input 
+   and one for output, for example, 
+   CON1.3  GPE1  Input 
+   CON1.4  GPE2  Output 
+
+   (2) Accquire a wire wrapping board, and mount the server, ARMSVR or JETSVR, on the 
+   wire wrapping board, be sure to choose adequate size of the wire wrapping board to 
+   give room for the future prototyping tasks for multiple sensors, and motor drivers
+   etc. The sample board was given in a photo (ARMSVR.jpg). 
+
+
+2. Hardware Design 
+   (1) Design and built GPIO input testing circuit with a toggle switch, when toggled to
+   position A, say, Vcc, ARMSVR will read the GPIO input pin via an user application 
+   program linked to device driver program. The user application with a line of code 
+   of 
+      fd = open("/dev/leds0", 0);
+   and 
+      ioctl(fd, on, led_no);
+   and/or read/write statement of C code. 
+
+   (2) Design and build GPIO output testing circuit with the same user application program
+   and driver program.    
+    
+3. Software Design 
+   (1) Install linux distribution on your laptop. 
+   (2) Install linux-arm-gcc on your laptop. 
+   (3) Use make to compile and build sample user program leds.c from /linux/example folder. 
+       Be sure the path to the linux-arm-gcc compiler is set correctly, you may use 
+
+       $linux-arm-gcc -v 
+
+       to check if it is set correctly and its version. 
+   (4) Use make menuconfig to generate script needed to compile and build device driver program
+       and/or OS kernel image, and use 
+       make modules 
+       to compile and build device driver program once make menucofig is done. 
+   (5) Use device driver sample code from /drivers/char/ to build your GPIO device driver. 
+   (6) Once the user application program and the device driver was compiled and built, then 
+       copy to USB stick and insert the USB stick to ARMSVR, then 
+       first copy the user application program to your desired folder on the ARMSVR, 
+       then copy the device driver to the ARMSVR, and install it by 
+   
+       insmod my_firstdriver 
+
+    (7) Then you can run your user application program. Once you done, remove un-install the 
+       device driver module by 
+
+       rmmod my_firstdriver 
+
+(END)   
+
+
+ 
+
