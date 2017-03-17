@@ -1,0 +1,28 @@
+Jetson Shield Information 
+March 2017 
+
+NVIDIA jetson TK1 shield JETSVR-SHL-01﻿
+On Ebay
+http://www.ebay.com/itm/201841063439?ssPageName=STRK:MESELX:IT&_trksid=p3984.m1555.l2649
+and 
+http://www.ctione.com/products
+
+This product provides users the ability to implement multiple functions (such as GPIO and UART) 
+that need to interact with J3A2 Connector, also as known as the Expansion Headers, on the NVIDIA JetsonTK1 board. 
+
+Price: $49.99﻿
+ 
+Features:
+• Dimension: 70mm*23.5mm
+• Build with 2mm pitch dual row male header pins which allows the user to directly plug onto the Expansion Headers
+• Build-in 6 channel Level shifters (Low voltage 1.8v, High voltage 5v)
+• Connector J4: JST 2.54mm 2-Pin Connector provides GPIO (2 and 3) debugging capabilities 
+• Connector J3: JST 2.54mm 2-Pin Connector provides UART communication (UART 1) with a build-in RS232 circuit 
+• Connector J2: JST 2.54mm 2-Pin Connector provides UART communication (UART 1) with build-in RS485 circuit 
+• Connector J1: 4-Pin RJ11 connector provides a level-shifted Rx and Tx (UART 0 with voltage level: 5v) that can be connected to Arduino or so
+
+Note:
+• UART 1 from JetsonTk1 board are shared between RS232 and RS485
+• UART 0 from JetsonTk1 board works alone with Connector RJ11 after voltage converted 
+• Any other function besides UART and GPIO has not been developed with this Version of JETSHD
+• *The Front Panel Headers will be covered when using this JETSHD.﻿﻿﻿﻿
