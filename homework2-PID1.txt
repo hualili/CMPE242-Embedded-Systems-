@@ -1,0 +1,92 @@
+Homework 2 Vehicle Model and PID Controller 1
+ 
+Based on the handouts 1 and 2 on PID controller design for self driving vehicle, 
+(1) write a c/c++ program to compute derivates by 1D convolution, your program will 
+prompt the user input for forward difference, backward difference and central differnece, 
+then select the proper kernel to preform convolution of the input data, use the following
+10 data points for testing purpose: 1.0 1.11 1.35 1.20 4.32 2.1 0.11 -2.1 -1.1 7.32; 
+(2) create vehicleModel.h file to define the model per discussion in the class, e.g., 
+use #define SPDVHL 5000 //note the naming convention, 6 letters, 3 letters for root, 
+e.g., VHL, 3 letter prefix SPD for speed, and the speed is defined as 5 KM per hour;
+sample definition as follows: 
+
+#define SPDVHL      5000      // vehicle speed 5 KM per hour
+#define PWMMOT      500       // pwm max frequency to drive the motor controller 500 hz
+#define ANGSTR      pi/3      // max steering angle
+#define STPMOT      0.225     // 1/8 micro step of the steering motor 
+#define RADWHL      0.3       // radius of the wheel  
+#define ANGSMP      30        // angle sampling rate from i2c sensor
+  
+(3) write c/c++ code to implement PID controller, use meaningful variable names as follows
+
+#define number_IError    4     // number of integration terms for IError[n]
+#define Kp               10    // gain proportional 
+#define Kd               10    // gain derivative 
+#define ki               10    // gain integral 
+#define alpha1           0.33  // weighting for kp 
+#define alpha2           0.33  // weighting for ki
+#define alpha3           0.33  // weighting for kd
+#define minError        -1000.0// min error limit 
+#define maxError        1000.0 // max error limit
+
+Error[n]           // for error 
+DError[n]          // derivative of error 
+FDError[n]         // forward difference computation for the derivative of error
+BDError[n]         // backward difference computation for the derivative of error
+CDError[n]         // central difference computation for the derivative of error
+IError[n]          // integral of error (squared each individual error) 
+SumError[n]        // summation of pid errors 
+
+Note 
+(1) define Error[n] range for steering, e.g., clip it to the following range 
+#define ErrorMin        -1000.0// min error limit 
+#define ErrorMax        1000.0 // max error limit
+set any error value to its max or min error limit for error computed from the pid 
+controller.  
+(2) define a linear function to map the error to pwm control frequency and direction
+
+                                            -
+                                           - |
+                                          -
+                                         -   |
+                                        -
+                                       -     |
+                                      -
+                                     -       |
+                                    -
+                                   -         |
+                                  *
+                                 -|          |
+                                -
+                               -             |
+                              -   |           
+                             -               |
+                            -     |           
+_________|_________________|______*__________|__________
+       minError           -  0              maxError 
+         |               -
+                        -
+         |             -
+                      -
+         |           -
+                    -
+         |         -
+                  -
+         |       -
+                -
+         |     -
+              -
+         |   -
+            -
+         | -
+          -
+         -
+ErrorMin 
+
+(4) Submit the C source code, the binary (for x86 platform with gcc compiled) to 
+realize the pid control. 
+(5) submit the testing pattern result (see handout for the 10-points testing data). 
+(6) optional, submit openGL program to visualize the motion path. 
+(END) 
+
+ 
