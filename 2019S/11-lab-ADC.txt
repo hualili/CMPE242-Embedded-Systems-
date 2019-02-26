@@ -1,0 +1,53 @@
+Lab ADC Sensor Interface and Motor Drive Integration Testing   
+HL 
+
+This lab is designed to implement A/D conversion for sensor interface 
+(industrial IoT for example) and stepper motor drive integration test.
+In this lab, you will integrate ADC sensor input to drive stepper motor: 
+
+1. Design and build ADC input circuit with an opential meter to produce 
+output voltage from 0.0 VDC to 3.3 VDC, and connect it to the ADC input
+pin of your ARM dev board. 
+
+2. Write C/C++ program to call ADC driver and to set sampling frequency 
+to 1K SPS (samples per second). Then perform the ADC calibration by
+computing calibration curve by finding 10 pairs of input-voltage 
+data vs its output digital value, plot these data, and use linear 
+interpolation technique to plot the linear equation to illustrate the 
+input-output relation. 
+
+3. Use FFT program provided in the class to validate the ADC data by 
+computing its power spectrum, based on your result to identify if there
+is any aliasing, and to make sampling rate change accordingly. 
+
+4. Integrate the ADC input with PWM motor drive program to realize the 
+stepper motor speed control. As the potential meter increases its output 
+voltage the stepper motor will increase its speed, as the input voltage
+reaches 3.3 VDC limit, the motor reaches the highest speed, as the input
+voltage reaches 0.0 VDC, the motor should stop. 
+
+5. (Optional) add sensor feedback to the embedded system to detect 
+the stepper motor angular speed, you can choose the sensor of your 
+choice, or build one (DIY) if you prefer. 
+
+6. Hint: Conduct AD conversion data validation by using FFT computation of 
+the ADC data. You can obtain the data by varing the potential meter value 
+to change the analog input to the ADC, then ADC acquire this changes with 
+up to 256 points. Once these 256 discrete data points are collected, use 
+FFT to calculate power spectrum of your input data points. Plot the power 
+spectrum of the data and submit it in the report.  
+
+What to demo: 
+1. In the lab demo, demonstrate the requirements from 1 to 6; 
+
+What to submit: 
+1. Project report in IEEE format, please down load the paper template 
+from on line.  
+2. The report should include flow charts, algorithm description, pseudo code, 
+and source code listing (in the appendix). 
+3. The report should provide block diagrams of the wire wrapping board, 
+circuit schematics, and photos of the actual implementation, as well as testing 
+data and analysis.
+4. Submit your report and source code in electronics format when instructed individually.   
+
+(END)  
