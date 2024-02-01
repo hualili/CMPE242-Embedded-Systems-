@@ -1,0 +1,73 @@
+------------------------------------------
+-CTI One Corp                            -
+-Date: 07-11-2023		         -
+-Author : Youran Zheng  	  	 -
+-Project: PyModbus Test             	 -
+-Purpose: Write a PyModubus test code for- 
+-	  SZ controller
+-Hardware Platform: Jetson Nano Developer-
+-         Kit 4GB -- 945-13450-0000-100  -           
+-
+------------------------------------------
+
+=== Prerequisite: =====================
+Reference:
+https://pymodbus.readthedocs.io/en/latest/index.html
+
+=======================================
+
+July 11th, 2023 YZ
+
+1. Install conda by download the newest version from Miniforge.
+   https://github.com/conda-forge/miniforge/releases
+   Change to the download directory and use "bash" command to install it. 
+   $ bash Mambaforge-23.1.0-3-Linux-aarch64.sh
+   Then type the following command to activate "conda" command.
+   $ source ~/.bashrc
+
+2. Open a terminal and activete conda environment
+   $ conda activate
+
+3. To write PyModbus code, first install it.
+   $ pip3 install pymodbus
+
+4. Run PyModbus Test
+   $ python3 modbus_test.py
+
+Note: The PyModbus requires Python version 3.8 or higher.
+      Please check the Python version before testing.
+
+Use Visual Stduio Code to write in Python.
+
+===============================
+
+===============================
+July 11th, 2023 YY
+(Just in case)If Python 3.9 or other version is needed
+
+1. Download the newest version of Miniforge.
+   https://github.com/conda-forge/miniforge/releases
+   Change to the download directory and use "bash" command to install it. 
+   $ bash Mambaforge-23.1.0-3-Linux-aarch64.sh
+   Then type the following command to activate "conda" command.
+   $ source ~/.bashrc
+
+2. Create a Conda vertual environment
+   $ conda create -n pyModbus39 python=3.9
+
+3. Open a terminal and activete conda environment
+   $ conda activate pyModbus39
+
+4. To write PyModbus code, first install it.
+   $ pip3 install pymodbus
+
+5. Run PyModbus Test
+   $ python3 modbus_test.py
+
+Note: The PyModbus requires Python version 3.8 or higher.
+      Please check the Python version before testing.
+
+===============================
+
+
+
