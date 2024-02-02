@@ -1,0 +1,18 @@
+#--------------------------------------------
+# CTI One Corporation
+# for W100 484 RTU Motor Controller
+# Version x0.1
+#
+# Create a Anaconda environment;
+# Open a terminal, then 
+# $ conda env create -f 190q-6a-4-#485-pymodbus-2023-7-13.yml
+# Activate the Anaconda environment: $ conda activate pymodbus39
+#------------------------------------------
+name: 485pymodbus39-2023-7-13
+
+dependencies:
+  - python==3.9
+  - pip
+  - pip:
+    - pyserial
+    - pymodbus
